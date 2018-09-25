@@ -4,7 +4,7 @@ build:
 	docker build -t image-builder-raw .
 
 rpi-raw-image: build
-	docker run --rm --privileged -v $(shell pwd):/workspace image-builder-raw /builder/rpi/build.sh
+	docker run --rm --privileged -v $(pwd):/workspace image-builder-raw /builder/rpi/build.sh
 
 odroid-raw-image: build
 	docker run --rm --privileged -v $(shell pwd):/workspace image-builder-raw /builder/odroid/build.sh
