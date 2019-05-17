@@ -8,8 +8,8 @@ fi
 
 ### setting up some important variables to control the build process
 BUILD_RESULT_PATH="/workspace"
-IMAGE_PATH="geopoppy-raw.img"
-SD_CARD_SIZE=5000
+IMAGE_PATH="rpi-raw.img"
+SD_CARD_SIZE=8000
 BOOT_PARTITION_SIZE=64
 
 # create empty BOOT/ROOTFS image file
@@ -64,6 +64,6 @@ zip "${BUILD_RESULT_PATH}/${IMAGE_PATH}.zip" "${IMAGE_PATH}"
 sleep 2
 cd ${BUILD_RESULT_PATH} && sha256sum "${IMAGE_PATH}.zip" > "${IMAGE_PATH}.zip.sha256" && cd -
 
-fdisk -l /geopoppy-raw.img
+fdisk -l /rpi-raw.img
 # test raw image that we have built
 rspec --format documentation --color /builder/rpi/test
